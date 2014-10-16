@@ -1,0 +1,131 @@
+So when considering how to manage dependancies in Rails models can be hard.  ActiveRecord userps our `initialize` method and doesn't let us pass anything in.  Where good practice tells is to do this.
+
+```
+class SomeModel
+
+	def initialize(some_required_klass: SomeRequiredKlass)
+		@some_required_klass = some_required_klass
+	end
+
+	private
+
+	def some_required_klass
+		@some_required_klass
+	end
+
+end
+```
+
+See (private_attr_reader) post if the `private` reader concerns you.
+
+When I inherit from `ActiveRecord` I can't use my initialize method anymore :(  
+
+```
+class SomeModel < ActiveRecord::Base
+
+	def initialize(some_required_klass: SomeRequiredKlass)
+		@some_required_klass = some_required_klass
+	end
+
+	private
+
+	def some_required_klass
+		@some_required_klass
+	end
+
+end
+```
+
+	##### show error
+
+What is Rails doing? 
+
+	#### dig into code
+
+So what do I do?  I started to just wrap the dependancies in a method
+
+```
+
+	def some_required_klass
+		SomeRequiredKlass
+	end
+
+```
+
+thinking that's better than nothing.  But eventually I caught onto a little secret, Rails models aren't always ActiveRecord objects [mind blown]!  [In fact they often aren't!] { http://stevenharman.net/reclaim-your-domain-model-from-rails }
+
+So when thinking about the singleness of responsability principle (link), really any object inheriting from `ActiveRecord` only has the responsability of persistance. When I first realized this I though "Ha [DHH], your design is wrong and I'm smarter than you! Hahaha", but then my friends at [Big Nerd Ranch] helped me understand (burst my inflating ego).
+
+Really it shouldn't need any other objects for it's single responsability, so I shouldn't need to manage dependancies.  It's only supposed persist objects to the db and `ActiveRecord` manages that very well thank you.
+
+Lets see what I'm talking about through some refactorings.  To start I'll take the same pattern as the above example but rename things so they make more sense.  The idea is we're asking Google for any new events from it's Calendar API and we're saving them to the db.
+
+```
+class Event
+
+	def initialize(google_event: GoogleEvent)
+		@google_event = google_event
+	end
+
+	private
+
+	def google_event
+		@google_event
+	end
+
+end
+```
+
+Uh Ooo, need `ActiveRecord`
+
+```
+class Event < ActiveRecord::Base
+
+	private
+
+	def google_event
+		GoogleEvent
+	end
+
+end
+```
+
+Now we make the call to google and save the new event.
+
+```
+class Event < ActiveRecord::Base
+
+	# this is the real problem here
+	def fetch_new_events
+		response = google_event.get_new_event
+		save_google_events response.events
+	end
+
+	private
+
+	def add_google_events(google_events)
+		google_events.each do |google_event|
+			create(google_event.to_h)
+		end
+	end
+
+
+	# this is a clue and a smell
+	def google_event
+		GoogleEvent
+	end
+
+end
+```
+
+This code is far from ideal.  We've got the event class making calls to Google.  That's definitely not within the responsability of managing persistance to the db!
+
+So how do we manage this interaction?  We can use a service object!
+{
+	"http://brewhouse.io/blog/2014/04/30/gourmet-service-objects.html",
+	"http://railscasts.com/episodes/398-service-objects?view=comments",
+	
+}
+
+
+

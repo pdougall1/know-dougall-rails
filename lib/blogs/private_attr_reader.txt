@@ -1,0 +1,204 @@
+The attr_reader method is great! It allows us to quickly make a list of reader methods for your instance variables.  So for a class like this:
+
+``` 
+class SomeKlass
+
+	def initialize(var_1, var_2)
+		@var_1 = var_1
+		@var_2 = var_2
+	end
+
+	def so_something_with(var_3)
+		@var_3 = var_3
+	end
+
+
+end
+
+```
+
+where you want to respectably wrap those instance variables in a method (
+	.  see [Barewords] "http://devblog.avdi.org/2012/10/01/barewords/"
+	.  Sandy Metz with contention "http://blog.nistu.de/2012/12/17/poodr-review-1-to-3"
+)
+
+Ruby provides the `attr_reader` class method to easily provide a reader for each of those instance variables.
+
+
+``` 
+class SomeKlass
+
+	attr_reader :var_1, :var_2, :var_3
+
+	def initialize(var_1, var_2)
+		@var_1 = var_1
+		@var_2 = var_2
+	end
+
+	def include(var_3)
+		@var_3 = var_3
+	end
+
+
+end
+
+```
+
+Now it's possible to access them through "barewords".
+
+```
+SomeKlass.new(1, 2).var_1 # => 1
+```
+
+or inside the class
+
+``` 
+class SomeKlass
+
+	#... previous code
+
+	def add_all
+		var_1 + var_2 + var_3
+	end
+
+end
+
+```
+and when called
+
+```
+SomeKlass.new(1, 2).include(3).add_all # => 6
+```
+
+This is great!  Ruby is making it so easy to have good practices!  One of my favorite things about this design is that I now have a list of my instance variables, right there at the top of the class.  
+
+Using the attr_reader also allows us to evolve the code easily, because no implementations of instance variables are tied to the variable value itself.  They are all wrapped in a method.  So if the new feature requires all included values need to be implemented as floats for instance, easy peazy!
+
+``` 
+class SomeKlass
+
+	#... previous code
+
+	def var_3
+		@var_3.to_f
+	end
+
+
+end
+
+```
+
+Great!  My code is gonna be sooo encapsulated now!  Future me is gonna love me!  
+
+But wait, you forgot about programming to an interface.  The `attr_reader` method adds these methods to your class.
+
+``` 
+class SomeKlass
+
+	# this line here actually adds those methods down there, it's a little short cut
+	# but always to the public scope
+	attr_reader :var_1, :var_2, :var_3
+
+	public # they are all in the public space
+
+	def var_3
+		@var_3
+	end
+
+	def var_2
+		@var_2
+	end
+
+	def var_3
+		@var_3
+	end
+
+	private
+
+	#... nothing down here :(
+
+end
+
+```
+
+Our intention for using the reader was to keep the implementation of those instance variables maleable, not to make them a part of the public interface.  
+
+Keeping the public interface intentional helps with so many things!  It helps with testing (only unit test the public interface).  It helps with singleness of purpose (are all these public methods serving the same purpose?).  It communicates what the class is to be used for.  So suddenly this `attr_reader` is screwing us all up!  I'm gonna end up using those reader methods all over my code and eventually the tightly coupled future me is gonna hate me again :(
+
+I could just add the `attr_reader` to the `private` methods
+
+``` 
+class SomeKlass
+
+	private
+
+	attr_reader :var_1, :var_2, :var_3
+
+end
+
+```
+
+But then Ruby throws a warning :(  (some would say this is a bug!)
+
+Right now I'm just adding the readers to the private score in long form. This is ok I guess, but I really liked having that list of variables at all in one place.  Maybe one day my code can be that great, but now I have to say my preferred practice is this: 
+
+``` 
+class SomeKlass
+
+	private
+
+	def var_3
+		@var_3
+	end
+
+	def var_2
+		@var_2
+	end
+
+	def var_3
+		@var_3
+	end
+
+end
+
+```
+
+Ok, just for conversation sake, what would you think if you saw code like this little monkey patch?
+
+```
+class Object
+
+	def self.private_attr_reader(*args)
+		args.each do |arg|
+			send :define_method, arg do
+				instance_variable_get("@#{arg.to_s}")
+			end
+			private arg
+		end
+	end
+
+end
+```
+
+to be used thusly
+
+``` 
+class SomeKlass
+
+	private_attr_reader :var_1, :var_2, :var_3
+
+	def initialize(var_1, var_2)
+		@var_1 = var_1
+		@var_2 = var_2
+	end
+
+	def include(var_3)
+		@var_3 = var_3
+	end
+
+
+end
+
+```
+
+Is if horrible to monkey patch at all?  Is it just horrible to monkey patch `Object`?  Did I just write the method badly (I mean I'm not quite writing C code here).

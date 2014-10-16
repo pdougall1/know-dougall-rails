@@ -1,0 +1,18 @@
+I was writing a small inhouse app recently and needed to pull out a bunch of code dealing with the Google API into a namespace, so naturally I wanted to slip it all into a module.  Trying to do this in a normal Ruby way was throwing all kinds of errors, not finding nested constants, being really weird.  
+
+	show directory structure
+	show code that didn't work
+	show error
+
+Eventually I found that Rails was messing with me. It was wrapping all the files in a subdirectory with a module named with the name of that direcory.  That sounds really confusing (as I found it) so let me show you for a sec.
+
+
+
+
+describe how to use nested directory structure in rails
+
+find Rails code that enforces this and explain it
+
+is it good or bad?
+do we use rails for the conventions?
+is the anoyingness of rails because we don't like conventions messing with the way we write ruby or is it because we don't actually know the conventions?

@@ -2,6 +2,9 @@ source 'https://rubygems.org'
 
 ruby '2.1.1'
 
+# dotenv has a load order dependancy :(
+gem 'dotenv-rails', :groups => [:development, :test]
+
 gem 'rails', '4.0.4'
 gem 'rails-api'
 gem 'pg'
@@ -29,3 +32,4 @@ gem 'redcarpet'
 gem 'pdfkit'
 gem 'rails_12factor', group: :production
 gem 'wkhtmltopdf-binary'
+gem 'rack-cors'

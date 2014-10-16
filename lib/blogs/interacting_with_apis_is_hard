@@ -1,0 +1,11 @@
+Today I was kicked in the but with how much effort is takes to reliably write code to interact with an API.  I 
+
+I need to make a call to google to add a channel, and to stop a channel.  
+
+Each calls has a response, I need to know what to do with that response.
+	if the reponse is good, what do I do 
+	if the response is bad what do I do
+	if the response I can't make the response what do I do
+	if the response is good or bad, if the retuned JSON breaks the contract what do I do
+
+There is a lot of varaibles here to consider!  What am I supposed to 
