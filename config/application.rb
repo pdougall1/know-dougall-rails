@@ -27,7 +27,7 @@ module KnowDougall
 
     config.middleware.insert_before "ActionDispatch::Static", "Rack::Cors" do
       allow do
-        origins ENV['DOMAIN']
+        origins ENV['DOUGALL_EMBER_DOMAIN']
         resource '*', headers: :any, methods: :any
       end
     end
