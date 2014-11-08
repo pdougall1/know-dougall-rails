@@ -32,4 +32,5 @@ gem 'redcarpet'
 gem 'pdfkit'
 gem 'rails_12factor', group: :production
 gem 'wkhtmltopdf-binary'
-gem 'rack-cors'
+gem 'rack-cors', :require => 'rack/cors'
+gem 'thin'
