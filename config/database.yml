@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: #know-dougall_development
+  database: know-dougall_development
   pool: 5
   username: #know-dougall
   password:
@@ -51,3 +51,10 @@ test:
   username: #know-dougall
   password:
 
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: know-dougall_production
+  pool: 5
+  username: know-dougall
+  password:
