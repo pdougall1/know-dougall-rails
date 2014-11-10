@@ -7,28 +7,39 @@ class Api::PostsController < ApplicationController
 
 	def show
 		@post = Post.find params[:id]
-		render json: {post: @post}
+		if @post.save
+			render json: @post
+		else
+			head :bad_request
+		end
 	end
 
 	def create
 		post = Post.new post_params
-		binding.pry
-		post.format
-		post.save
-		render json: {post: post}
+		if post.save
+			render json: {post: post}
+		else
+			head :bad_request
+		end
 	end
 
 	def update
 		post = Post.find params[:id]
 		post.update_attributes(post_params)
-		post.format
-		post.save
-		render json: {post: post}
+		if post.save
+			render json: {post: post}
+		else
+			head :bad_request
+		end
 	end
 
 	def destroy
 		post = Post.find(params[:id]).destroy
-		render json: {post: post}
+		if post.save
+			render json: {post: post}
+		else
+			head :bad_request
+		end
 	end
 
 	private

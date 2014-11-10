@@ -1,17 +1,12 @@
-class Post < ActiveRecord::Base
+module Markdownable
+	extend ActiveSupport::Concern
 
 	def format
-		self.formatted_entry = markdown entry
+		self.formatted_entry = markdown(entry)
 	end
 
-  class HTMLwithPygments < Redcarpet::Render::HTML
-    def block_code(code, language)
-      Pygments.highlight(code, lexer:language)
-    end
-  end
-
   def markdown(text)
-    renderer = HTMLwithPygments.new(hard_wrap: true, filter_html: true)
+    renderer = PrettyHTML.new(hard_wrap: true, filter_html: true)
     options = {
       autolink: true,
       no_intra_emphasis: true,
@@ -22,6 +17,5 @@ class Post < ActiveRecord::Base
     }
     Redcarpet::Markdown.new(renderer, options).render(text).html_safe
   end
-
 
 end

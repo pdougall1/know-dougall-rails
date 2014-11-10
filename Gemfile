@@ -15,6 +15,12 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+group :test do
+	gem 'rspec'
+	gem 'rspec-rails'
+	gem "factory_girl_rails", "~> 4.0"
+end
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
@@ -23,8 +29,6 @@ end
 
 gem 'pry', group: [:development, :test]
 
-gem 'rspec'
-gem 'rspec-rails'
 gem 'ember-rails'
 gem 'foundation-rails'
 gem 'pygments.rb'
@@ -34,3 +38,4 @@ gem 'rails_12factor', group: :production
 gem 'wkhtmltopdf-binary'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'thin'
+gem 'active_model_serializers'

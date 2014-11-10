@@ -3,6 +3,7 @@ KnowDougall::Application.routes.draw do
 
   namespace 'api' do 
     resources :posts
+    resources :annotations
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
