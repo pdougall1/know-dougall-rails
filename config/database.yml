@@ -54,7 +54,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: know-dougall_production
+  database: know_dougall_production
   pool: 5
-  username: know-dougall
-  password:
+  username: know_dougall
+  password: 70603aacfb6677a85d811d538502c94b # later will have to do this <%= ENV['KNOW_DOUGALL_POSTGRES'] %>
