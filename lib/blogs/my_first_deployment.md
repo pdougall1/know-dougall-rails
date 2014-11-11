@@ -162,3 +162,11 @@ install RVM
 
 and then the ruby version
 `rvm install 2.1.1`
+
+need to bundle as root :(
+
+need to specify pg_config file 
+`gem install  pg -v '0.17.1' -- --with-pg-config=/usr/pgsql-9.3/bin/pg_config`
+
+this is maybe a dependancy of pg gem
+yum install postgresql-devel
