@@ -30,7 +30,6 @@ end
 gem 'pry', group: [:development, :test]
 
 gem 'ember-rails'
-gem 'foundation-rails'
 gem 'pygments.rb'
 gem 'redcarpet'
 gem 'pdfkit'
@@ -39,3 +38,4 @@ gem 'wkhtmltopdf-binary'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'thin'
 gem 'active_model_serializers'
+gem 'uglifier'
