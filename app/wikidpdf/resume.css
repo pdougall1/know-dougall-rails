@@ -1,0 +1,93 @@
+body { 
+	padding-left: 20px;
+	padding-right: 20px;
+	font-family: 'Droid Sans', sans-serif; 
+}
+ul { list-style-type: none; }
+.page-break { display:block; clear:both; page-break-after:always; }
+
+.top-title {
+	margin-top: 50px;
+}
+
+.main-title {
+	margin-top: 30px;
+}
+
+.section {
+	margin-top: 30px;
+}
+
+.left {
+	width: 45%;
+	float: left;
+	padding-right: 3%;
+}
+
+.section .left {
+	text-align: right;
+	border-right: solid 2px black;
+}
+
+.section .left li {
+	float: right;
+}
+
+.section .left .topic {
+	float: right;
+}
+
+
+
+.right {
+	width: 45%;
+	float: right;
+	padding-left: 4%;
+}
+
+.section .right li {
+}
+
+.main-title {
+	font-size: 25px;
+}
+
+.main-title .date {
+	font-size: 12px;
+	color: gray;
+}
+
+.section li {
+	color: gray;
+	font-size: 12px;
+	clear: both;
+}
+
+.topic {
+	font-size: 20px;
+}
+
+.clear {
+    clear: both;
+    height: 3px;
+    width: 100%;
+    color: black;
+}
+
+.work-history .section .left {
+	width: 10%;
+}
+
+.work-history .section .right {
+	width: 80%;
+}
+
+.work-history .date {
+	text-align: right;
+	margin-right: 20px;
+}
+
+.top-title {
+	font-weight: bold;
+	font-size: 15px;
+}
