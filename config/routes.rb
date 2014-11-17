@@ -1,5 +1,6 @@
 KnowDougall::Application.routes.draw do
 
+  get 'resume' => 'resume#show'
 
   namespace 'api' do 
     resources :posts
