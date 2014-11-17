@@ -1,6 +1,7 @@
 KnowDougall::Application.routes.draw do
 
   get 'resume', to: 'resume#show'
+  get 'ping', to: 'pings#index'
 
   namespace 'api' do 
     resources :posts
