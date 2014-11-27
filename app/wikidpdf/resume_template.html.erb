@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<link rel="stylesheet" type="text/css" href="resume.css" media="screen" />
+	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  </head>
+  <body>
+  <div class='heading'>
+  	<div class='left'>
+  		<ul>
+  			<li><strong><%= name.upcase %></strong></li>
+  			<li><%= email %></li>
+  		</ul>
+  	</div>
+  	<div class='right'>
+  		<ul>
+  			<li><a href="<%= web_address %>">patrickdougall.com</a></li>
+  			<li><a href="<%= github %>">github.com/pdougall1</a></li>
+  		</ul>
+  	</div>
+  </div>
+  <div class='clear'></div>
+
+  <div class='work-history'>
+    <div class='top-title'>WORK HISTORY</div>
+    <% jobs.each do |job| %>
+	    <div class='main-title'>
+	      <div class='work-title left'><%= job.name %></div>
+	      <div class='date right'><%= job.start_date %> - <%= job.end_date || 'present' %></div>      
+	    </div>
+	    <div class='clear'></div>
+	    <ul>
+	    	<% job.description_points.each do |dp| %>
+	    		<li><%= dp %></li>
+	    	<% end %>
+	    </ul>
+	    <% job.projects.each do |project| %>
+		    <div class='project'>
+		        <div class='topic'><%= project.name %></div>
+		        <ul>
+		        	<% project.description_points.each do |dp| %>
+			        	<li><%= dp %></li>
+			        <% end %>
+		        </ul>
+		        <ul>
+		        	<% project.techs_used.each do |dp| %>
+			        	<li><%= dp %></li>
+			        <% end %>
+		        </ul>
+		    </div>
+		    <div class='clear'></div>
+			<% end %>
+		<% end %>
+	</div>
+
+<div class="page-break"></div> 
+	
+	<div class='personal-projects'>
+		<% personal_projects.each do |p_project| %>
+	    <div class='project'>
+	        <div class='topic'><%= p_project.name %></div>
+	        <ul>
+	        	<% p_project.description_points.each do |dp| %>
+		        	<li><%= dp %></li>
+		        <% end %>
+	        </ul>
+	        <ul>
+	        	<% p_project.techs_used.each do |dp| %>
+		        	<li><%= dp %></li>
+		        <% end %>
+	        </ul>
+	    </div>
+	    <div class='clear'></div>
+	  <% end %>
+	</div>
+
+  <div class='education'>
+    <div class='top-title'>EDUCATION</div>
+    <% education.each do |school| %>
+	  	<div class='main-title school-title'><%= school.name %></div>
+
+	  	<div class='section'>
+	  		<div class='left'>
+	  			<div class='topic'><%= school.degree%></div>
+	  			<ul>
+	  				<li><%= school.gpa %></li>
+	  				<% school.accolades.each do |acc| %>
+		  				<li><%= acc %></li>
+	  				<% end %>
+	  			</ul>
+	  		</div>
+	  		<div class='right'>
+	  			<div class='date'><%= school.start_date %>-<%= school.end_date %></div>
+	  		</div>
+	  	</div>
+	  	<div class='clear'></div>
+  	<% end %>
+  </div>  
+
+  </body>
+</html>
