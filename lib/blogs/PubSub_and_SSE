@@ -1,0 +1,52 @@
+I've got a whole lot of IO on this one huge HTTP request!  How do we handle the user experience here?  I don't want the user to have to wait for everything to be done, but I want them to have all the data that should be in the response body.  So how do we handle this?  Well it gets kind of complex!  We'll need to implement these three technologies.
+
+  *  We'll use Sidekiq to dispatch workers, so we can send a response to the user and still keep working.  
+  *  Any worker will need to communicate back with the web process, so we'll do that with a PubSub design with Redis.  
+  *  Then we need to tell the client all the great new data as it comes back in, which we accomplish with server sent events and long polling.  
+
+Lots of work to do so lets get to it!
+
+Each time the controller action gets hit we'll need to persist the user, persist their connected_users, send a response, and then we worry about filling in all the rest of the user info. 
+
+### Workers with Sidekiq
+
+What is this doing?  This starts a seperate Rails process for each of our workers.  We're using Sidekiq which supports concurncy because it's <evented> so we can have many processes working at the same time.  Doing the work in other Rails processes allows the web process to proceed and return the payload back to the user.
+
+###PubSub with Redis
+we can watch what happens with redis using the redis-cli and the `MONITOR` command
+
+```
+% redis-cli
+redis> MONITOR
+OK
+```
+
+I got started here with this post by Nick Quaranto
+http://robots.thoughtbot.com/redis-pub-sub-how-does-it-work
+
+I like to declare an global variable for my redis instance:
+
+```
+$redis
+```
+
+We'll want to publish the results for each connected_user to the channel for that connected user.  Now this can use some thought.  The work being done in these separate rails processes don't know about the web process that connects to the client, so how do we get the data back over there?  That's where Redis comes in handy.  All processes are getting connected to the same Redis server, so after the worker "publishes" the data to Redis, any process that "subscribes" to it will receive it, Redis passes it along.  It's a great way to get data back where you want it!
+
+We'll publish to Redis in the `UserUpdateWorker` we have, right after we persist the user to the database.  
+
+
+For each connected_user associated with the user we'll need to subscribe to a channel in Redis, and it'll have to be specific to each user user.  We can just plan to use the user id in the name for the channel.  We can also expect that the subscribed to channel will receive notificaitons specific to that user, so we can send them along to the client.
+
+Setting up the subscription will look like this:
+
+```
+response = ''
+$redis.subscribe("process-finished-#{user.id}") do |on|
+  on.message { |channel, msg| response = JSON.parse(msg) }
+end
+
+do something with response
+```
+
+
+
