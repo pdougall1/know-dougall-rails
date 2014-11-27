@@ -1,0 +1,142 @@
+---
+:name: Patrick Dougall
+:email: pdougall1@gmail.com
+:web_address: http://patrickdougall.com
+:github: https://github.com/pdougall1
+:started_programming: '2012-01-02T00:00:00-05:00'
+:jobs:
+- :name: Big Nerd Ranch
+  :web_address: http://www.bignerdranch.com/
+  :start_date: '2014-09-01T00:00:00-04:00'
+  :description_points:
+  - TODO
+  - TODO
+  - TODO
+  :projects:
+  - :name: Bookie
+    :techs_used:
+    - Ruby on Rails
+    - PostgreSQL
+    - Git
+    - Travis CI
+    - AWS SNS service
+    - Google Calendar API
+    - Google push notifications
+    :description_points:
+    - Receives and persists updates to a cache as the result of recieving Google Calendar Push notifications
+    - Sends clients push notificaions about room changes through AWS SNS service
+- :name: Look-Listen
+  :web_address: http://look-listen.com/
+  :start_date: '2013-08-12T00:00:00-04:00'
+  :end_date: '2014-08-08T00:00:00-04:00'
+  :description_points: 
+  - Lead developer on three Rails projects, two of which have Ember front ends.
+  - Learn about an implement many technologies to solve real world problems.
+  - Grew to rely on the use of basic language constructs (POROs and POJOs) to build systems from the ground up.
+  :projects:
+  - :name: GE online marketing tool
+    :techs_used:
+    - Ruby on Rails
+    - PostgreSQL
+    - Git
+    - Ember.js
+    - D3
+    - AWS S3
+    :description_points:
+    - Illustrates the potential benefits to clients in real time
+    - Uses databindings and D3.js for immediate results
+    - Produces reports and emails them as PDFs
+  - :name: Flywheel
+    :techs_used:
+    - Ruby on Rails
+    - PostgreSQL
+    - Git
+    - Redis
+    - MongoDB
+    - Multiple APIs
+    :description_points:
+    - Aggrogates and stores data from 
+    - Transforms disperate sources and forms of data into a unifieng table
+    - provides compiled reports of the data in a restful API
+  - :name: Go Bike Go
+    :techs_used:
+    - Ruby on Rails
+    - Postgres
+    - Git
+    - jQuery
+    :description_points:
+    - Ticketing system for a series of bike shops to keep track of customers and the work required
+- :name: SmartBIM
+  :web_address: http://www.smartbim.com/
+  :start_date: '2013-01-25T00:00:00-05:00'
+  :end_date: '2013-08-06T00:00:00-04:00'
+  :projects:
+  - :techs_used:
+    - Ruby on Rails
+    - elasticsearch
+    - Postgres
+    - Git
+    - jQuery
+    :description_points:
+    - 3 Rails devs building and maintaining 3 Rails apps
+    - Our main product was an online library used to find 3D models for Revit
+    - This position introduced me to a large, complex system with multiple apps operating
+      together
+:personal_projects:
+- :name: Friends Graph
+  :techs_used:
+  - Sidekiq
+  - TODO 1
+  - TODO 2
+  - TODO 3
+  :description_points:
+  - TODO 1
+  - TODO 2
+  - TODO 3
+- :name: Fun Schedular
+  :techs_used:
+  - Sidekiq
+  - TODO 1
+  - TODO 2
+  - TODO 3
+  :description_points:
+  - TODO 1
+  - TODO 2
+  - TODO 3
+- :name: Game of Life
+  :techs_used:
+  - Sidekiq
+  - TODO 1
+  - TODO 2
+  - TODO 3
+  :description_points:
+  - TODO 1
+  - TODO 2
+  - TODO 3
+- :name: Chipero
+  :web_address: https://www.chipero.com/
+  :start_date: '2012-10-31T00:00:00-04:00'
+  :techs_used:
+  - Ruby on Rails
+  - Postgres
+  - Git
+  - jQuery
+  :description_points:
+  - TODO 1
+  - TODO 2
+  - TODO 3
+:education:
+- :name: Georgia State University
+  :degree: Masters of Neuroscience
+  :gpa: 3.48/4.0
+  :start_date: '2009-08-01T00:00:00-04:00'
+  :end_date: '2012-01-01T00:00:00-05:00'
+- :name: Georgia State University
+  :degree: Bachelors of Science, Psychology
+  :gpa: 3.6/4.0
+  :accolades:
+  - Magna Cum Laude
+  - Honors Distinction
+  :start_date: '2006-08-01T00:00:00-04:00'
+  :end_date: '2009-05-01T00:00:00-04:00'
+
