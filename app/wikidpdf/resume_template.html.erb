@@ -23,51 +23,76 @@
 
   <div class='work-history'>
     <div class='top-title'>WORK HISTORY</div>
-    <% jobs.each do |job| %>
+    <% jobs.each.with_index do |job, job_i| %>
 	    <div class='main-title'>
-	      <div class='work-title left'><%= job.name %></div>
+	      <div class='left'><%= job.name %></div>
 	      <div class='date right'><%= job.start_date %> - <%= job.end_date || 'present' %></div>      
 	    </div>
 	    <div class='clear'></div>
-	    <ul>
+	    <ul class='description-points'>
 	    	<% job.description_points.each do |dp| %>
 	    		<li><%= dp %></li>
 	    	<% end %>
 	    </ul>
-	    <% job.projects.each do |project| %>
+	    <% job.projects.each.with_index do |project, project_i| %>
 		    <div class='project'>
 		        <div class='topic'><%= project.name %></div>
-		        <ul>
+		        <ul class='description-points'>
 		        	<% project.description_points.each do |dp| %>
 			        	<li><%= dp %></li>
 			        <% end %>
 		        </ul>
-		        <ul>
-		        	<% project.techs_used.each do |dp| %>
-			        	<li><%= dp %></li>
-			        <% end %>
-		        </ul>
+		        <div class='list-name'>TECHNOLOGIES</div>
+		        <% techs = project.techs_used %>
+		        <% half = (techs.count / 2.0).to_i %>
+		        <% half -= 1 if techs.count.even? %>
+		        <% group_1 = techs[0..half] %>
+		        <% group_2 = techs - group_1 %>
+		        <table>
+		        	<% group_1.count.times do |i| %>
+		        		<tr>
+		        			<td><%= group_1[i] %></td>
+		        			<td><%= group_2[i] %></td>
+		        		</tr>
+		        	<% end %>
+		        </table>
+
 		    </div>
 		    <div class='clear'></div>
+		    <% if job_i == 1 && project_i == 0 %>
+		    	<div class="page-break"></div>
+		    <% end %>
 			<% end %>
 		<% end %>
 	</div>
 
-<div class="page-break"></div> 
+
 	
 	<div class='personal-projects'>
+		<div class='top-title'>Personal Projects</div>
 		<% personal_projects.each do |p_project| %>
 	    <div class='project'>
 	        <div class='topic'><%= p_project.name %></div>
-	        <ul>
+	        <ul class='description-points'>
 	        	<% p_project.description_points.each do |dp| %>
 		        	<li><%= dp %></li>
 		        <% end %>
 	        </ul>
-	        <ul>
-	        	<% p_project.techs_used.each do |dp| %>
-		        	<li><%= dp %></li>
-		        <% end %>
+	        <div class='list-name'>TECHNOLOGIES</div>
+	        <ul class='techs'>
+		        <% techs = p_project.techs_used %>
+		        <% half = (techs.count / 2.0).to_i %>
+		        <% half -= 1 if techs.count.even? %>
+		        <% group_1 = techs[0..half] %>
+		        <% group_2 = techs - group_1 %>
+		        <table>
+		        	<% group_1.count.times do |i| %>
+		        		<tr>
+		        			<td><%= group_1[i] %></td>
+		        			<td><%= group_2[i] %></td>
+		        		</tr>
+		        	<% end %>
+		        </table>
 	        </ul>
 	    </div>
 	    <div class='clear'></div>
@@ -76,24 +101,26 @@
 
   <div class='education'>
     <div class='top-title'>EDUCATION</div>
-    <% education.each do |school| %>
-	  	<div class='main-title school-title'><%= school.name %></div>
+    <% education.each.with_index do |school, school_i| %>
+	    <div class='main-title'>
+	      <div class='left'><%= school.name %></div>
+	      <div class='date right'><%= school.start_date %> - <%= school.end_date || 'present' %></div>      
+	    </div>
+	    <div class='clear'></div>
 
 	  	<div class='section'>
-	  		<div class='left'>
-	  			<div class='topic'><%= school.degree%></div>
-	  			<ul>
-	  				<li><%= school.gpa %></li>
-	  				<% school.accolades.each do |acc| %>
-		  				<li><%= acc %></li>
-	  				<% end %>
-	  			</ul>
-	  		</div>
-	  		<div class='right'>
-	  			<div class='date'><%= school.start_date %>-<%= school.end_date %></div>
-	  		</div>
+  			<div class='topic'><%= school.degree%></div>
+  			<ul>
+  				<li><%= school.gpa %></li>
+  				<% school.accolades.each do |acc| %>
+	  				<li><%= acc %></li>
+  				<% end %>
+  			</ul>
 	  	</div>
 	  	<div class='clear'></div>
+	  	<% if school_i == 0 %>
+	  		<div class="page-break"></div>
+	  	<% end %>
   	<% end %>
   </div>  
 

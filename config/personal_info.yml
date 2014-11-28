@@ -9,9 +9,8 @@
   :web_address: http://www.bignerdranch.com/
   :start_date: '2014-09-01T00:00:00-04:00'
   :description_points:
-  - TODO
-  - TODO
-  - TODO
+  - BNR does consulting as well as teaching for major tech companies all over the world
+  - I adopted programming practices from some of the best programmers in the industry
   :projects:
   - :name: Bookie
     :techs_used:
@@ -40,7 +39,7 @@
     - PostgreSQL
     - Git
     - Ember.js
-    - D3
+    - D3.js
     - AWS S3
     :description_points:
     - Illustrates the potential benefits to clients in real time
@@ -61,7 +60,7 @@
   - :name: Go Bike Go
     :techs_used:
     - Ruby on Rails
-    - Postgres
+    - PostgreSQL
     - Git
     - jQuery
     :description_points:
@@ -74,7 +73,7 @@
   - :techs_used:
     - Ruby on Rails
     - elasticsearch
-    - Postgres
+    - PostgreSQL
     - Git
     - jQuery
     :description_points:
@@ -85,34 +84,33 @@
 :personal_projects:
 - :name: Friends Graph
   :techs_used:
+  - Ruby on Rails API
+  - PostgreSQL
+  - Git
+  - Redis
   - Sidekiq
-  - TODO 1
-  - TODO 2
-  - TODO 3
+  - Server Sent Events
+  - LinkedIn API
+  - Ember.js
   :description_points:
-  - TODO 1
-  - TODO 2
-  - TODO 3
+  - Imports the user's data including their connections 
+  - Graphs the connections on a D3.js force layout
 - :name: Fun Schedular
   :techs_used:
-  - Sidekiq
-  - TODO 1
-  - TODO 2
-  - TODO 3
+  - Ruby on Rails
+  - Ember.js
+  - PostgreSQL
+  - Git
+  - Google Calendar API
   :description_points:
-  - TODO 1
-  - TODO 2
-  - TODO 3
+  - A tool to help my friends and I communicate about planning events better
 - :name: Game of Life
   :techs_used:
-  - Sidekiq
-  - TODO 1
-  - TODO 2
-  - TODO 3
+  - Ember.js
+  - D3.js
   :description_points:
-  - TODO 1
-  - TODO 2
-  - TODO 3
+  - Ember addon the provides a component one can include in their webpage
+  - Uses D3.js to visualize the progression of Conway's Game of Life 
 - :name: Chipero
   :web_address: https://www.chipero.com/
   :start_date: '2012-10-31T00:00:00-04:00'
@@ -121,10 +119,11 @@
   - Postgres
   - Git
   - jQuery
+  - Google Maps API
   :description_points:
-  - TODO 1
-  - TODO 2
-  - TODO 3
+  - First Rails application I ever build (still in operation)
+  - Connects truck mulching companies with people who need mulch
+  - Has a strong mobile component
 :education:
 - :name: Georgia State University
   :degree: Masters of Neuroscience
