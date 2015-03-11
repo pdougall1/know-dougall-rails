@@ -9,6 +9,8 @@ gem 'rails', '4.0.4'
 gem 'rails-api'
 gem 'pg'
 gem 'jbuilder', '~> 1.2'
+gem 'docverter'
+gem 'faraday'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

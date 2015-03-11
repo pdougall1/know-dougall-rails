@@ -48,5 +48,7 @@ end
 do something with response
 ```
 
+CATCH: Redis hangs on to the process once you call `subscribe`.  This means we'll need to add a new action for the long polling, so we can relese he first action to return all the users.
+
 
 

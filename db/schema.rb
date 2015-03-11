@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141018050557) do
+ActiveRecord::Schema.define(version: 20150311042600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 20141018050557) do
     t.string   "name"
   end
 
+  create_table "days", force: true do |t|
+    t.integer  "repository_id"
+    t.integer  "count"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "posts", force: true do |t|
     t.text     "entry"
     t.text     "formatted_entry"
@@ -34,6 +41,13 @@ ActiveRecord::Schema.define(version: 20141018050557) do
     t.datetime "updated_at"
     t.text     "summary"
     t.boolean  "viewable"
+  end
+
+  create_table "repositories", force: true do |t|
+    t.string   "name"
+    t.string   "site"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
