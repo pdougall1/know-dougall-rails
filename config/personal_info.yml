@@ -4,13 +4,38 @@
 :web_address: http://patrickdougall.com
 :github: https://github.com/pdougall1
 :started_programming: '2012-01-02T00:00:00-05:00'
+:basic_me:
+- 'Always be learning!  A language, a style, depth in specific facet; learning is what keeps things exciting!'
+- 'Always be teaching!  Grows you, them, and the community in wonderful ways :)'
+- 'Object Oriented Programming! (even in the face of cool fun functional stuff, OOP is great in the 99% case)'
+- "Build simple software.  Don't make people work hard to understand creative messes, but write simple, descrete units with a single purpose that can express that purpose in the way you write it."
+- 'I love to mess around with fun side projects in my free time!  I have a dream of building a small community of light beings :)'
+- 'Very "Right tool for the right job."'
+- 'I like using languages, not just frameworks. POROs and POJOs are good things!'
+:heroes:
+- :Sandy Metz: 'Read POODR, done her training, love her thoughts on OO!'
+  :Avdi Grim: 'Ruby Tapas, every week!  Wonderful mind around programming!'
+  :Martin Fowler: 'Website is a much used reference.  Books are cannonical!'
+:technologies:
+- :Git: 'A nice git history is very important!'
+  :Ruby on Rails: 'Great fascilitator, but the heart of my app it still the damain inside.'
+  :Sinatra:
+  :Postgres:
+  :MySql:
+  :Redis:
+  :Continuous Integration: 'Travis CI, Codeship'
+  :Lots of integrations: 'All over AWS, Google, private client APIs'
+  :Ember: 'I am co-organizer of the Atlanta Ember Meetup'
+  :React: 'A little sprincle here and there'
+  :D3.js:
+  :Go: 'Just in pet projects'
 :jobs:
 - :name: Big Nerd Ranch
   :web_address: http://www.bignerdranch.com/
   :start_date: '2014-09-01T00:00:00-04:00'
   :description_points:
-  - BNR does consulting as well as teaching for major tech companies all over the world
-  - I adopted programming practices from some of the best programmers in the industry
+  - BNR does consulting as well as teaching for major tech companies all over the world.
+  - I adopted programming practices from (what I believe to be) some of the best programmers in the industry.
   :projects:
   - :name: Bookie
     :techs_used:
@@ -28,7 +53,7 @@
   :web_address: http://look-listen.com/
   :start_date: '2013-08-12T00:00:00-04:00'
   :end_date: '2014-08-08T00:00:00-04:00'
-  :description_points: 
+  :description_points:
   - Lead developer on three Rails projects, two of which have Ember front ends.
   - Learn about an implement many technologies to solve real world problems.
   - Grew to rely on the use of basic language constructs (POROs and POJOs) to build systems from the ground up.
@@ -54,7 +79,7 @@
     - MongoDB
     - Multiple APIs
     :description_points:
-    - Aggrogates and stores data from 
+    - Aggrogates and stores data from
     - Transforms disperate sources and forms of data into a unifieng table
     - provides compiled reports of the data in a restful API
   - :name: Go Bike Go
@@ -93,7 +118,7 @@
   - LinkedIn API
   - Ember.js
   :description_points:
-  - Imports the user's data including their connections 
+  - Imports the user's data including their connections
   - Graphs the connections on a D3.js force layout
 - :name: Fun Schedular
   :techs_used:
@@ -110,7 +135,7 @@
   - D3.js
   :description_points:
   - Ember addon the provides a component one can include in their webpage
-  - Uses D3.js to visualize the progression of Conway's Game of Life 
+  - Uses D3.js to visualize the progression of Conway's Game of Life
 - :name: Chipero
   :web_address: https://www.chipero.com/
   :start_date: '2012-10-31T00:00:00-04:00'
