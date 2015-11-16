@@ -6,7 +6,7 @@ namespace :pdf do
   	# testing_pdf_path =  Rails.root.join('app', 'wikidpdf', 'testing.pdf').to_s
   	ResumeBuilder.build_static_template
   	pdf_path = Rails.root.join('public', 'resume.pdf').to_s
-  	File.open(path, 'w') { |f| f.write(Resume.build) }
+  	File.open(pdf_path, 'w') { |f| f.write(Resume.build) }
   end
 
   desc "testing doc"
