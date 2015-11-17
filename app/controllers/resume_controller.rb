@@ -7,5 +7,6 @@ class ResumeController < ApplicationController
 	    filename: "patrick_dougall_resume.pdf",
 	    type: "application/pdf"
 	  )
+    # render text: ResumeHTML.build.html_safe
 	end
 end

@@ -1,10 +1,95 @@
 <!DOCTYPE html>
 <html>
   <head>
-	<link rel="stylesheet" type="text/css" href="resume.css" media="screen" />
 	<link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
+  <style>
+  body {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-family: 'Droid Sans', sans-serif;
+    line-height: 125%;
+  }
+  ul {
+    padding-left: 20px;
+    margin-top: 0;
+  }
+
+  .page-break { display:block; clear:both; page-break-after:always; }
+
+  .top-title {
+    margin-top: 50px;
+    font-weight: bold;
+    font-size: 15px;
+    border-bottom: 1px solid #D9D9D9;
+  }
+
+  .main-title {
+    margin-top: 30px;
+    font-size: 25px;
+  }
+
+  .section {
+    margin-top: 30px;
+  }
+
+  .left {
+    width: 45%;
+    float: left;
+  }
+
+  .right {
+    width: 45%;
+    float: right;
+  }
+
+  .section li {
+    font-size: 14px;
+    clear: both;
+  }
+
+  .topic {
+    margin-top: 30px;
+    font-size: 20px;
+  }
+
+  .clear {
+      clear: both;
+      height: 3px;
+      width: 100%;
+      color: black;
+  }
+
+  .date {
+    font-size: 16px;
+    text-align: right;
+  }
+
+  .list-name {
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  td {
+    width: 50%;
+  }
+
+  .description-points {
+    margin-top: 20px;
+  }
+
+  .heading { margin-top: 50px; }
+  .heading li { list-style-type: none; }
+  .heading ul { padding-left: 0; }
+  .heading .right { text-align: right; }
+  </style>
   </head>
   <body>
+  <meta charset="utf-8" />
   <div class='heading'>
   	<div class='left'>
   		<ul>
@@ -20,13 +105,38 @@
   	</div>
   </div>
   <div class='clear'></div>
+  <div class='about-me'>
+    <div class='top-title'>ABOUT ME</div>
+    <div class='main-title'>Values</div>
+    <ul class='description-points'>
+      <% basic_me.each do |attribute| %>
+        <li><%= attribute %></li>
+      <% end %>
+    </ul>
+
+    <div class='main-title'>Favories</div>
+    <ul class='description-points'>
+      <% heroes.keys.first.each do |name, attribute| %>
+        <li><%= name %> : <%= attribute %></li>
+      <% end %>
+    </ul>
+
+    <div class='main-title'>Technologies</div>
+    <ul class='description-points'>
+      <% technologies.keys.first.each do |name, attribute| %>
+        <li><%= name %> <%= ": #{attribute}" if attribute %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="page-break"></div>
 
   <div class='work-history'>
     <div class='top-title'>WORK HISTORY</div>
     <% jobs.each.with_index do |job, job_i| %>
 	    <div class='main-title'>
 	      <div class='left'><%= job.name %></div>
-	      <div class='date right'><%= job.start_date %> - <%= job.end_date || 'present' %></div>      
+	      <div class='date right'><%= job.start_date %> - <%= job.end_date || 'present' %></div>
 	    </div>
 	    <div class='clear'></div>
 	    <ul class='description-points'>
@@ -34,79 +144,78 @@
 	    		<li><%= dp %></li>
 	    	<% end %>
 	    </ul>
-	    <% job.projects.each.with_index do |project, project_i| %>
+<!-- 	    <%# job.projects.each.with_index do |project, project_i| %>
 		    <div class='project'>
-		        <div class='topic'><%= project.name %></div>
+		        <div class='topic'><%#= project.name %></div>
 		        <ul class='description-points'>
-		        	<% project.description_points.each do |dp| %>
-			        	<li><%= dp %></li>
-			        <% end %>
+		        	<%# project.description_points.each do |dp| %>
+			        	<li><%#= dp %></li>
+			        <%# end %>
 		        </ul>
 		        <div class='list-name'>TECHNOLOGIES</div>
-		        <% techs = project.techs_used %>
-		        <% half = (techs.count / 2.0).to_i %>
-		        <% half -= 1 if techs.count.even? %>
-		        <% group_1 = techs[0..half] %>
-		        <% group_2 = techs - group_1 %>
+		        <%# techs = project.techs_used %>
+		        <%# half = (techs.count / 2.0).to_i %>
+		        <%# half -= 1 if techs.count.even? %>
+		        <%# group_1 = techs[0..half] %>
+		        <%# group_2 = techs - group_1 %>
 		        <table>
-		        	<% group_1.count.times do |i| %>
+		        	<%# group_1.count.times do |i| %>
 		        		<tr>
-		        			<td><%= group_1[i] %></td>
-		        			<td><%= group_2[i] %></td>
+		        			<td><%#= group_1[i] %></td>
+		        			<td><%#= group_2[i] %></td>
 		        		</tr>
-		        	<% end %>
+		        	<%# end %>
 		        </table>
 
 		    </div>
 		    <div class='clear'></div>
-		    <% if job_i == 1 && project_i == 0 %>
+		    <%# if job_i == 1 && project_i == 0 %>
 		    	<div class="page-break"></div>
-		    <% end %>
-			<% end %>
+		    <%# end %>
+			<%# end %> -->
 		<% end %>
 	</div>
 
 
-	
-	<div class='personal-projects'>
+
+<!-- 	<div class='personal-projects'>
 		<div class='top-title'>Personal Projects</div>
-		<% personal_projects.each do |p_project| %>
+		<%# personal_projects.each do |p_project| %>
 	    <div class='project'>
-	        <div class='topic'><%= p_project.name %></div>
+	        <div class='topic'><%#= p_project.name %></div>
 	        <ul class='description-points'>
-	        	<% p_project.description_points.each do |dp| %>
-		        	<li><%= dp %></li>
-		        <% end %>
+	        	<%# p_project.description_points.each do |dp| %>
+		        	<li><%#= dp %></li>
+		        <%# end %>
 	        </ul>
 	        <div class='list-name'>TECHNOLOGIES</div>
 	        <ul class='techs'>
-		        <% techs = p_project.techs_used %>
-		        <% half = (techs.count / 2.0).to_i %>
-		        <% half -= 1 if techs.count.even? %>
-		        <% group_1 = techs[0..half] %>
-		        <% group_2 = techs - group_1 %>
+		        <%# techs = p_project.techs_used %>
+		        <%# half = (techs.count / 2.0).to_i %>
+		        <%# half -= 1 if techs.count.even? %>
+		        <%# group_1 = techs[0..half] %>
+		        <%# group_2 = techs - group_1 %>
 		        <table>
-		        	<% group_1.count.times do |i| %>
+		        	<%# group_1.count.times do |i| %>
 		        		<tr>
-		        			<td><%= group_1[i] %></td>
-		        			<td><%= group_2[i] %></td>
+		        			<td><%#= group_1[i] %></td>
+		        			<td><%#= group_2[i] %></td>
 		        		</tr>
-		        	<% end %>
+		        	<%# end %>
 		        </table>
 	        </ul>
 	    </div>
 	    <div class='clear'></div>
-	  <% end %>
-	</div>
+	  <%# end %>
+	</div> -->
 
   <div class='education'>
     <div class='top-title'>EDUCATION</div>
     <% education.each.with_index do |school, school_i| %>
 	    <div class='main-title'>
 	      <div class='left'><%= school.name %></div>
-	      <div class='date right'><%= school.start_date %> - <%= school.end_date || 'present' %></div>      
+	      <div class='date right'><%= school.start_date %> - <%= school.end_date || 'present' %></div>
 	    </div>
-	    <div class='clear'></div>
 
 	  	<div class='section'>
   			<div class='topic'><%= school.degree%></div>
@@ -118,11 +227,11 @@
   			</ul>
 	  	</div>
 	  	<div class='clear'></div>
-	  	<% if school_i == 0 %>
+	  	<!-- <%# if school_i == 0 %>
 	  		<div class="page-break"></div>
-	  	<% end %>
+	  	<%# end %> -->
   	<% end %>
-  </div>  
+  </div>
 
   </body>
 </html>

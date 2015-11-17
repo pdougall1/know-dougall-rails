@@ -5,15 +5,16 @@
 :github: https://github.com/pdougall1
 :started_programming: '2012-01-02T00:00:00-05:00'
 :basic_me:
-- 'Always be learning!  A language, a style, depth in specific facet; learning is what keeps things exciting!'
+- 'Always be learning!  A language, a style, depth in a specific facet; learning is what keeps things exciting!'
 - 'Always be teaching!  Grows you, them, and the community in wonderful ways :)'
-- 'Object Oriented Programming! (even in the face of cool fun functional stuff, OOP is great in the 99% case)'
-- "Build simple software.  Don't make people work hard to understand creative messes, but write simple, descrete units with a single purpose that can express that purpose in the way you write it."
+- 'Community is critical!  Be concerned about the people in your industry and they will be concerned about you.'
+- 'Object Oriented Programming! (even in the face of cool fun functional stuff, OOP is great in the 90% case)'
+- "Build simple software.  Don't make people work hard to understand creative messes, but write simple, descrete units with a single purpose that express intent."
 - 'I love to mess around with fun side projects in my free time!  I have a dream of building a small community of light beings :)'
 - 'Very "Right tool for the right job."'
 - 'I like using languages, not just frameworks. POROs and POJOs are good things!'
 :heroes:
-- :Sandy Metz: 'Read POODR, done her training, love her thoughts on OO!'
+- :Sandy Metz: 'Books, trainings, love her thoughts on OO!'
   :Avdi Grim: 'Ruby Tapas, every week!  Wonderful mind around programming!'
   :Martin Fowler: 'Website is a much used reference.  Books are cannonical!'
 :technologies:
@@ -26,8 +27,8 @@
   :Continuous Integration: 'Travis CI, Codeship'
   :Lots of integrations: 'All over AWS, Google, private client APIs'
   :Ember: 'I am co-organizer of the Atlanta Ember Meetup'
-  :React: 'A little sprincle here and there'
   :D3.js:
+  :React: 'A little sprincle here and there'
   :Go: 'Just in pet projects'
 :jobs:
 - :name: Big Nerd Ranch
@@ -55,8 +56,8 @@
   :end_date: '2014-08-08T00:00:00-04:00'
   :description_points:
   - Lead developer on three Rails projects, two of which have Ember front ends.
-  - Learn about an implement many technologies to solve real world problems.
-  - Grew to rely on the use of basic language constructs (POROs and POJOs) to build systems from the ground up.
+  - Implement many technologies to solve real world problems.
+  - Grew to rely on the use of basic language constructs (not just implementing frameworks) to build systems from the ground up.
   :projects:
   - :name: GE online marketing tool
     :techs_used:
@@ -94,6 +95,11 @@
   :web_address: http://www.smartbim.com/
   :start_date: '2013-01-25T00:00:00-05:00'
   :end_date: '2013-08-06T00:00:00-04:00'
+  :description_points:
+  - 3 Rails devs building and maintaining 3 Rails apps
+  - Our main product was an online library used to find 3D models for Revit
+  - This position introduced me to a large, complex system with multiple apps operating
+    together
   :projects:
   - :techs_used:
     - Ruby on Rails
@@ -101,17 +107,11 @@
     - PostgreSQL
     - Git
     - jQuery
-    :description_points:
-    - 3 Rails devs building and maintaining 3 Rails apps
-    - Our main product was an online library used to find 3D models for Revit
-    - This position introduced me to a large, complex system with multiple apps operating
-      together
 :personal_projects:
 - :name: Friends Graph
   :techs_used:
   - Ruby on Rails API
   - PostgreSQL
-  - Git
   - Redis
   - Sidekiq
   - Server Sent Events

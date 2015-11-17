@@ -9,9 +9,9 @@ class Resume
 	end
 
 	def build
-	  	encoded_pdf = @pdf.force_encoding("UTF-8")
-      File.open(path_to_pdf, 'w') { |f| f.write(encoded_pdf) }
-      encoded_pdf
+  	encoded_pdf = @pdf.force_encoding("UTF-8")
+    File.open(path_to_pdf, 'w') { |f| f.write(encoded_pdf) }
+    encoded_pdf
 	end
 
   private

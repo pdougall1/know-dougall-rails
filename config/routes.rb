@@ -3,7 +3,7 @@ KnowDougall::Application.routes.draw do
   get 'resume', to: 'resume#show'
   get 'ping', to: 'pings#index'
 
-  namespace 'api' do 
+  namespace 'api' do
     resources :posts
     resources :annotations
     resources :personal_info

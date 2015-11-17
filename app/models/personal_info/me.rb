@@ -1,6 +1,9 @@
 class PersonalInfo::Me
 	include Virtus.model
 
+  attribute :basic_me, Array
+  attribute :heroes, Hash
+  attribute :technologies, Hash
 	attribute :name, String
 	attribute :email, String
 	attribute :web_address, String
