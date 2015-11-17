@@ -7,8 +7,7 @@ class ResumeHTML
 	end
 
 	def build
-		html_string = renderer.result($personal_info.get_binding)
-		File.open(path_to_html, 'w') { |file| file.write(html_string) }
+		renderer.result($personal_info.get_binding)
 	end
 
 	def renderer
@@ -21,9 +20,5 @@ class ResumeHTML
 
 	def path_to_erb
 		Rails.root.join('app', 'wikidpdf', 'resume_template.html.erb').to_s
-	end
-
-	def path_to_html
-		Rails.root.join('app', 'wikidpdf', 'resume.html').to_s
 	end
 end

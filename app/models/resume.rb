@@ -4,20 +4,19 @@ class Resume
 		new.build
 	end
 
+	def initialize(html: ResumeHTML.build)
+		@pdf = WickedPdf.new.pdf_from_string(html)
+	end
+
 	def build
-	  	pdf.force_encoding("UTF-8")
+	  	encoded_pdf = @pdf.force_encoding("UTF-8")
+      File.open(path_to_pdf, 'w') { |f| f.write(encoded_pdf) }
+      encoded_pdf
 	end
 
-	def initialize
-		@pdf = WickedPdf.new.pdf_from_html_file(path_to_resume_html)
-	end
+  private
 
-	private 
-
-	attr_reader :pdf
-
-	def path_to_resume_html
-		Rails.root.join('app', 'wikidpdf', 'resume.html').to_s
-	end
-
+  def path_to_pdf
+    Rails.root.join('public', 'resume.pdf')
+  end
 end
